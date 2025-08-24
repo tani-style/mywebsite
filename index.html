@@ -4,39 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Passionis</title>
-  <link rel="stylesheet" href="style.css">
   <style>
-    /* استایل سریع (اگه style.css نذاشتی این کار میکنه) */
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      background: linear-gradient(to right, #043927, #000000); /* سبز زمردی تا مشکی */
       color: white;
-      display: flex;
-      flex-direction: column;
       min-height: 100vh;
     }
 
-    /* navbar */
-    .navbar {
+    header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
-      background: rgba(0, 0, 0, 0.6);
+      padding: 15px 20px;
+      background: rgba(0,0,0,0.6);
     }
 
     .logo {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: bold;
-      color: #ffcc00;
+      color: #00ff99;
+    }
+
+    /* منو سه خطی */
+    .menu-toggle {
+      display: block;
+      cursor: pointer;
+      font-size: 1.8rem;
     }
 
     .menu {
       list-style: none;
-      display: flex;
-      gap: 20px;
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 20px;
+      border-radius: 10px;
     }
 
     .menu li a {
@@ -46,78 +54,56 @@
       transition: color 0.3s;
     }
 
-    .menu li a:hover,
-    .menu li a.active {
-      color: #ffcc00;
+    .menu li a:hover {
+      color: #00ff99;
     }
 
-    /* hero section */
-    .hero {
-      flex: 1;
+    /* وقتی فعال شد نمایش بده */
+    .menu.active {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+    }
+
+    main {
+      display: flex;
       justify-content: center;
+      align-items: center;
+      height: 80vh;
       text-align: center;
-      padding: 50px;
+      flex-direction: column;
     }
 
-    .hero h1 {
+    main h1 {
       font-size: 3rem;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
-    .hero p {
+    main p {
       font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      background: #ffcc00;
-      color: black;
-      padding: 12px 25px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background: #ffaa00;
-    }
-
-    /* footer */
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: rgba(0, 0, 0, 0.6);
-      font-size: 0.9rem;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
   <header>
-    <nav class="navbar">
-      <div class="logo">Passionis</div>
-      <ul class="menu">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="logo">Passionis</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </header>
 
   <main>
-    <section class="hero">
-      <h1>Welcome to Passionis</h1>
-      <p>A place where creativity meets style, ideas, and inspiration.</p>
-      <a href="about.html" class="btn">Discover</a>
-    </section>
+    <h1>Welcome to Passionis</h1>
+    <p>A place of elegance, creativity and style.</p>
   </main>
 
-  <footer>
-    <p>© 2025 Passionis. All rights reserved.</p>
-  </footer>
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+  </script>
 </body>
 </html>
