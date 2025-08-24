@@ -1,14 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eternia</title>
+
+  <!-- فونت لاکچری -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', serif;
+      font-family: 'Playfair Display', serif; /* تغییر فونت */
       background: linear-gradient(135deg, #0d0d0d, #014421, #0d0d0d);
       background-attachment: fixed;
       color: #f5f5f5;
@@ -18,41 +21,48 @@
       background: #111;
       color: #fff;
       padding: 20px;
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 28px; /* بزرگ‌تر و شیک‌تر */
+      font-weight: 700;
+      letter-spacing: 2px; /* فاصله حروف برای حس لوکس */
     }
     main {
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
     h1 {
-      font-size: 42px;
+      font-size: 48px;
       margin-bottom: 20px;
-      color: #e0e0e0; /* روشن‌تر برای دیده شدن */
+      color: #e0e0e0;
+      font-weight: 700;
     }
     p {
-      font-size: 18px;
-      color: #ccc; /* خاکستری روشن */
-      max-width: 600px;
+      font-size: 20px;
+      color: #ccc;
+      max-width: 700px;
       margin: 0 auto 30px;
+      line-height: 1.6;
     }
     .btn {
-      background: #014421; /* سبز زمردی */
+      background: #014421;
       color: white;
-      padding: 12px 24px;
+      padding: 14px 32px;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 600;
       transition: 0.3s;
+      display: inline-block;
     }
     .btn:hover {
-      background: #026c32; /* سبز روشن‌تر در حالت hover */
+      background: #026c32;
+      transform: scale(1.05);
     }
     footer {
-      margin-top: 50px;
-      padding: 15px;
+      margin-top: 80px;
+      padding: 20px;
       background: #111;
       color: #aaa;
       font-size: 14px;
+      letter-spacing: 1px;
     }
   </style>
 </head>
