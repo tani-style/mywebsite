@@ -1,166 +1,103 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Passionis</title>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* فونت و بکگراند */
     body {
       margin: 0;
-      font-family: 'Merriweather', serif;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
-      padding-top: 70px; /* فاصله برای هدر */
-      overflow-x: hidden;
-    }
-
-    /* هدر */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-      z-index: 1000;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-
-    /* آیکن منو */
-    .menu-icon {
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    /* منوی کشویی */
-    .menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 250px;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      padding: 60px 20px;
-      transition: right 0.3s ease;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      z-index: 999;
     }
 
-    .menu a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      transition: color 0.3s ease;
-    }
-
-    .menu a:hover {
-      color: #4CAF50; /* سبز روشن برای هاور */
-    }
-
-    .menu.active {
-      right: 0;
-    }
-
-    /* سکشن اصلی */
-    main {
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    main h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-
-    main p {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      background: #4CAF50; /* سبز شیک */
-      color: white;
-      padding: 12px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 18px;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #45a049;
-    }
-
-    /* سکشن‌های پایین */
-    section {
-      padding: 100px 20px;
+    /* منو */
+    header {
+      padding: 20px;
       text-align: center;
     }
 
-    section h2 {
-      font-size: 32px;
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #FFD700;
+    }
+
+    /* بخش اصلی وسط صفحه */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
       margin-bottom: 15px;
     }
 
-    section p {
-      font-size: 16px;
-      max-width: 700px;
-      margin: auto;
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+      max-width: 600px;
+    }
+
+    .hero button {
+      background-color: #FFD700;
+      border: none;
+      padding: 12px 30px;
+      font-size: 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .hero button:hover {
+      background-color: #e6c200;
     }
   </style>
 </head>
 <body>
-  <!-- هدر -->
   <header>
-    <h1>Passionis</h1>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Discover</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- منوی کشویی -->
-  <nav class="menu" id="menu">
-    <a href="#">Home</a>
-    <a href="#about">About</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <!-- بخش اصلی -->
-  <main>
-    <h2>Welcome to Passionis</h2>
-    <p>A place where elegance meets creativity. Discover unique ideas, stylish inspirations, and timeless designs.</p>
-    <a href="#about" class="btn">Discover</a>
-  </main>
-
-  <!-- سکشن‌های اضافه برای اسکرول -->
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Passionis is where elegance meets creativity. Here you can share your story, your mission, and what makes your brand unique.</p>
+  <section class="hero">
+    <h1>Welcome to Passionis</h1>
+    <p>A place where elegance meets creativity. Discover unique ideas, stylish inspirations, and timeless design.</p>
+    <button>Discover</button>
   </section>
-
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <p>Showcase your projects, artworks, or inspirations here.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Provide ways for people to reach you: email, phone, or social media links.</p>
-  </section>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById("menu").classList.toggle("active");
-    }
-  </script>
 </body>
 </html>
