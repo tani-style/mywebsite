@@ -5,105 +5,131 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Passionis</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #043927, #000000); /* سبز زمردی تا مشکی */
+      font-family: 'Playfair Display', serif;
       color: white;
-      min-height: 100vh;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      text-align: center;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 20px;
-      background: rgba(0,0,0,0.6);
+      padding: 15px 30px;
     }
 
     .logo {
-      font-size: 1.6rem;
+      font-size: 22px;
       font-weight: bold;
-      color: #00ff99;
     }
 
-    /* منو سه خطی */
-    .menu-toggle {
-      display: block;
+    .menu-icon {
+      font-size: 28px;
       cursor: pointer;
-      font-size: 1.8rem;
     }
 
-    .menu {
-      list-style: none;
-      display: none;
-      flex-direction: column;
-      gap: 15px;
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      background: rgba(0, 0, 0, 0.9);
-      padding: 20px;
-      border-radius: 10px;
+    /* Sidebar */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: rgba(0,0,0,0.95);
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
     }
 
-    .menu li a {
-      text-decoration: none;
+    .sidebar a {
+      display: block;
       color: white;
-      font-weight: bold;
-      transition: color 0.3s;
+      padding: 15px 25px;
+      text-decoration: none;
+      font-size: 20px;
+      transition: 0.3s;
     }
 
-    .menu li a:hover {
-      color: #00ff99;
+    .sidebar a:hover {
+      background-color: #444;
     }
 
-    /* وقتی فعال شد نمایش بده */
-    .menu.active {
-      display: flex;
+    .closebtn {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 36px;
+      cursor: pointer;
     }
 
-    main {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 80vh;
-      text-align: center;
-      flex-direction: column;
+    .hero {
+      margin-top: 120px;
     }
 
-    main h1 {
-      font-size: 3rem;
-      margin-bottom: 15px;
+    .hero h1 {
+      font-size: 50px;
     }
 
-    main p {
-      font-size: 1.2rem;
-      color: #ccc;
+    .hero p {
+      font-size: 18px;
+      margin: 15px 0;
+    }
+
+    .hero button {
+      background: #ffcc00;
+      border: none;
+      padding: 12px 25px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    footer {
+      margin-top: 120px;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.4);
     }
   </style>
 </head>
 <body>
+
   <header>
     <div class="logo">Passionis</div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <ul class="menu" id="menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <div class="menu-icon" onclick="openNav()">&#9776;</div>
   </header>
 
-  <main>
+  <!-- Sidebar Menu -->
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
     <h1>Welcome to Passionis</h1>
-    <p>A place of elegance, creativity and style.</p>
-  </main>
+    <p>A place where creativity meets elegance. Discover unique ideas, stylish inspirations, and timeless designs.</p>
+    <button>Discover</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Passionis. All rights reserved.</p>
+  </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById("menu").classList.toggle("active");
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+    }
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
     }
   </script>
+
 </body>
 </html>
