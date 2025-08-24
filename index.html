@@ -9,49 +9,81 @@
       margin: 0;
       font-family: 'Poppins', serif;
       background: linear-gradient(135deg, #0d0d0d, #014421, #0d0d0d);
-      background-attachment: fixed;
       color: #f5f5f5;
       text-align: center;
     }
+
+    /* هدر */
     header {
       background: #111;
       color: #fff;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header .logo {
-      font-size: 22px;
+      padding: 20px;
+      font-size: 24px;
       font-weight: bold;
+      position: relative;
     }
-    nav a {
-      color: #fff;
+
+    /* دکمه سه خط */
+    .menu-toggle {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* منو */
+    .menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #014421;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      z-index: 999;
+    }
+
+    .menu a {
+      padding: 12px 30px;
       text-decoration: none;
-      margin-left: 20px;
-      font-size: 16px;
+      font-size: 20px;
+      color: white;
+      display: block;
       transition: 0.3s;
     }
-    nav a:hover {
-      color: #26d97f; /* سبز روشن‌تر */
+
+    .menu a:hover {
+      background: #026c32;
     }
+
+    .menu .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 36px;
+      cursor: pointer;
+    }
+
     main {
       padding: 60px 20px;
     }
+
     h1 {
       font-size: 42px;
       margin-bottom: 20px;
       color: #e0e0e0;
     }
+
     p {
       font-size: 18px;
       color: #ccc;
       max-width: 600px;
       margin: 0 auto 30px;
     }
+
     .btn {
       background: #014421;
       color: white;
@@ -61,9 +93,11 @@
       font-size: 16px;
       transition: 0.3s;
     }
+
     .btn:hover {
       background: #026c32;
     }
+
     footer {
       margin-top: 50px;
       padding: 15px;
@@ -75,26 +109,37 @@
 </head>
 <body>
   <header>
-    <div class="logo">Passionis</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Gallery</a>
-      <a href="#">Contact</a>
-    </nav>
+    Passionis
+    <span class="menu-toggle" onclick="openMenu()">☰</span>
   </header>
+
+  <!-- منوی مخفی -->
+  <div id="myMenu" class="menu">
+    <span class="close-btn" onclick="closeMenu()">×</span>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Gallery</a>
+    <a href="#">Contact</a>
+  </div>
 
   <main>
     <h1>Welcome to Passionis</h1>
-    <p>
-      A place where elegance meets creativity.  
-      Discover unique ideas, stylish inspirations, and modern designs.
-    </p>
+    <p>A place where elegance meets creativity.  
+       Discover unique ideas, stylish inspirations, and modern designs.</p>
     <a href="#" class="btn">Discover</a>
   </main>
 
   <footer>
     © 2025 Passionis. All rights reserved.
   </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById("myMenu").style.width = "250px";
+    }
+    function closeMenu() {
+      document.getElementById("myMenu").style.width = "0";
+    }
+  </script>
 </body>
 </html>
