@@ -1,160 +1,130 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Passionis</title>
-  <!-- فونت فارسی Vazirmatn -->
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Vazirmatn', sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
+      text-align: center;
     }
 
-    /* منوی بالا */
-    nav {
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
       width: 100%;
+      background: rgba(0, 0, 0, 0.6);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      background: rgba(0,0,0,0.3);
-      position: fixed;
-      top: 0;
-      left: 0;
+      padding: 15px 30px;
       z-index: 1000;
     }
 
-    nav h2 {
+    .navbar h1 {
       margin: 0;
-      font-weight: 600;
+      font-size: 22px;
+      font-weight: bold;
+      color: #00bcd4;
     }
 
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    nav ul li {
+    .menu-icon {
+      font-size: 26px;
       cursor: pointer;
+      color: white;
     }
 
-    /* منوی کشویی موبایل */
-    .menu-toggle {
+    .dropdown {
       display: none;
-      flex-direction: column;
-      cursor: pointer;
+      position: absolute;
+      top: 60px;
+      right: 30px;
+      background: rgba(0,0,0,0.9);
+      border-radius: 10px;
+      overflow: hidden;
     }
 
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background: white;
-      margin: 4px 0;
-      border-radius: 5px;
+    .dropdown a {
+      display: block;
+      padding: 12px 20px;
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
     }
 
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background: rgba(0,0,0,0.8);
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        padding: 1rem;
-        border-radius: 10px;
-      }
-
-      nav ul.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
+    .dropdown a:hover {
+      background: #00bcd4;
     }
 
-    /* وسط صفحه */
+    /* Hero Section */
     .hero {
-      flex: 1;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 2rem;
+      padding: 0 20px;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    .hero h2 {
+      font-size: 50px;
+      margin-bottom: 15px;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
+      font-size: 18px;
+      max-width: 600px;
+      margin-bottom: 30px;
+      line-height: 1.6;
     }
 
-    .btn {
-      background: #008c9e;
+    .hero button {
+      background: #00bcd4;
       border: none;
-      padding: 0.8rem 2rem;
-      color: white;
-      font-size: 1rem;
+      padding: 12px 28px;
+      font-size: 18px;
       border-radius: 30px;
       cursor: pointer;
       transition: 0.3s;
     }
 
-    .btn:hover {
-      background: #006b77;
+    .hero button:hover {
+      background: #008c9e;
     }
   </style>
 </head>
 <body>
 
-  <!-- منو -->
-  <nav>
-    <h2>Passionis</h2>
-    <ul id="menu">
-      <li>خانه</li>
-      <li>کشف</li>
-      <li>درباره ما</li>
-      <li>تماس</li>
-    </ul>
-    <div class="menu-toggle" id="menu-toggle">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </nav>
-
-  <!-- بخش اصلی -->
-  <div class="hero">
+  <!-- Navbar -->
+  <div class="navbar">
     <h1>Passionis</h1>
-    <p>اینجا جاییست برای شکوفایی خلاقیت، ایده‌های نو و شروعی تازه</p>
-    <button class="btn">کشف کن</button>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="dropdown" id="menu">
+      <a href="#">Home</a>
+      <a href="#">Discover</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
   </div>
 
-  <!-- جاوااسکریپت برای منو -->
-  <script>
-    const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
+  <!-- Hero Section -->
+  <div class="hero">
+    <h2>Welcome to Passionis</h2>
+    <p>Discover a world of creativity, style, and innovation.  
+       Passionis is where bold ideas turn into timeless experiences.</p>
+    <button>Discover</button>
+  </div>
 
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("menu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
   </script>
 
 </body>
