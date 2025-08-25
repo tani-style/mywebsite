@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+><!DOCTYPE html>
+<html lang="fa">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,122 +7,119 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
       color: white;
       text-align: center;
     }
 
-    /* Navbar */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.6);
+    /* نوار بالا */
+    header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
+      padding: 15px 20px;
+      background: rgba(0,0,0,0.3);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       z-index: 1000;
     }
 
-    .navbar h1 {
-      margin: 0;
-      font-size: 22px;
+    .logo {
+      font-size: 20px;
       font-weight: bold;
-      color: #00bcd4;
     }
 
+    /* آیکون منوی سه خطی */
     .menu-icon {
-      font-size: 26px;
+      font-size: 28px;
       cursor: pointer;
-      color: white;
+      user-select: none;
     }
 
-    .dropdown {
+    /* منوی کشویی */
+    nav {
       display: none;
       position: absolute;
       top: 60px;
-      right: 30px;
+      right: 20px;
       background: rgba(0,0,0,0.9);
       border-radius: 10px;
       overflow: hidden;
     }
 
-    .dropdown a {
+    nav a {
       display: block;
       padding: 12px 20px;
-      color: white;
       text-decoration: none;
-      transition: 0.3s;
+      color: white;
+      transition: background 0.3s;
     }
 
-    .dropdown a:hover {
-      background: #00bcd4;
+    nav a:hover {
+      background: #1abc9c;
     }
 
-    /* Hero Section */
+    /* بخش وسط صفحه */
     .hero {
       height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 0 20px;
     }
 
-    .hero h2 {
-      font-size: 50px;
-      margin-bottom: 15px;
+    .hero h1 {
+      font-size: 48px;
+      margin: 10px 0;
     }
 
     .hero p {
       font-size: 18px;
-      max-width: 600px;
-      margin-bottom: 30px;
-      line-height: 1.6;
+      margin-bottom: 20px;
     }
 
-    .hero button {
-      background: #00bcd4;
+    .btn {
+      padding: 12px 25px;
+      background: #008b8b;
+      color: white;
       border: none;
-      padding: 12px 28px;
-      font-size: 18px;
       border-radius: 30px;
+      font-size: 16px;
       cursor: pointer;
       transition: 0.3s;
     }
 
-    .hero button:hover {
-      background: #008c9e;
+    .btn:hover {
+      background: #00b3b3;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <div class="navbar">
-    <h1>Passionis</h1>
+  <header>
+    <div class="logo">Passionis</div>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <div class="dropdown" id="menu">
-      <a href="#">Home</a>
-      <a href="#">Discover</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </div>
-  </div>
+    <nav id="menu">
+      <a href="#">خانه</a>
+      <a href="#">درباره ما</a>
+      <a href="#">خدمات</a>
+      <a href="#">تماس با ما</a>
+    </nav>
+  </header>
 
-  <!-- Hero Section -->
   <div class="hero">
-    <h2>Welcome to Passionis</h2>
-    <p>Discover a world of creativity, style, and innovation.  
-       Passionis is where bold ideas turn into timeless experiences.</p>
-    <button>Discover</button>
+    <h1>Passionis</h1>
+    <p>اینجا می‌تواند متن معرفی سایت یا شعار شما قرار بگیرد</p>
+    <button class="btn">شروع کنید</button>
   </div>
 
   <script>
     function toggleMenu() {
-      var menu = document.getElementById("menu");
+      const menu = document.getElementById("menu");
       menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
   </script>
