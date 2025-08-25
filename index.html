@@ -1,118 +1,93 @@
-display:flex; align-items:center; justify-content: space-between;
-      padding: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-    .close{
-      width:40px; height:40px; border-radius: 12px;
-      border:1px solid var(--border);
-      background: var(--card); color: var(--text);
-      display:inline-flex; align-items:center; justify-content:center;
-      cursor:pointer;
-    }
-    .menu{
-      padding: 8px 10px 16px; overflow:auto;
-    }
-    .menu a{
-      display:flex; align-items:center; gap:10px;
-      padding: 12px 12px;
-      border-radius: 12px;
-      text-decoration:none; color: var(--text);
-      border:1px solid transparent;
-      transition: background .2s ease, border-color .2s ease;
-      font-size: 15.5px;
-    }
-    .menu a:hover{
-      background: #0f1722;
-      border-color: var(--border);
-    }
-    .menu small{ color: var(--muted); }
-
-    /* فوتر کوچیک */
-    footer{
-      max-width:1100px; margin: 40px auto 24px; padding: 0 18px;
-      color: var(--muted); font-size: 13px; text-align:center;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passionis</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      color: white;
+      text-align: center;
     }
 
-    /* دسترسی‌پذیری برای فوکوس */
-    a:focus-visible, button:focus-visible{
-      outline: 2px solid var(--teal); outline-offset: 2px;
+    /* نوار منو */
+    nav {
+      display: flex;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #1abc9c; /* سبز فیروزه‌ای روشن */
+    }
+
+    /* بخش خوش‌آمدگویی */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 60px; /* فاصله از منو */
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+
+    .btn {
+      background: #008080; /* فیروزه‌ای تیره */
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #006666;
     }
   </style>
 </head>
 <body>
-  <!-- نوار بالا -->
-  <nav class="nav" role="navigation" aria-label="ناوبری اصلی">
-    <div class="nav-inner">
-      <div class="brand" aria-label="نام سایت">Passionis</div>
-      <button id="openDrawer" class="hamburger" aria-label="باز کردن منو" aria-haspopup="dialog" aria-controls="drawerPanel">
-        <span></span>
-      </button>
-    </div>
+  <!-- منو -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Discover</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
   </nav>
 
-  <!-- سکشن قهرمان: عنوان + متن زیر پاسیونیس + دکمه فیروزه‌ای -->
-  <header class="hero">
-    <h1>Passionis</h1>
-    <p id="subtext">
-      اینجا متن زیر «Passionis» هست — هر توضیح کوتاهی که دوست داری اینجا بیاد
-      بذار. می‌تونی بعداً متن دقیق کارت رو جایگزین کنی.
-    </p>
-    <div class="actions">
-      <a class="btn" href="#discover" aria-label="برو به بخش Discover">Discover</a>
-      <!-- اگر دکمه دوم خواستی، فعالش کن
-      <a class="btn" href="#contact">ارتباط با ما</a>
-      -->
-    </div>
-  </header>
-
-  <!-- منوی کشویی -->
-  <div class="drawer" id="drawer" aria-hidden="true">
-    <div class="backdrop" id="backdrop" aria-hidden="true"></div>
-
-    <aside class="panel" id="drawerPanel" role="dialog" aria-modal="true" aria-label="منوی سایت">
-      <div class="panel-header">
-        <strong>منو</strong>
-        <button class="close" id="closeDrawer" aria-label="بستن منو">✕</button>
-      </div>
-
-      <nav class="menu" role="menu">
-        <a role="menuitem" href="#home">خانه <small>صفحه اصلی</small></a>
-        <a role="menuitem" href="#discover">Discover <small>کشف و جستجو</small></a>
-        <a role="menuitem" href="#about">درباره ما <small>شناخت بیشتر</small></a>
-        <a role="menuitem" href="#contact">تماس با ما <small>ارتباط مستقیم</small></a>
-      </nav>
-    </aside>
+  <!-- بخش اصلی -->
+  <div class="hero">
+    <h1>Welcome to Passionis</h1>
+    <p>A place where elegance meets creativity. Discover unique ideas, stylish inspirations, and timeless design.</p>
+    <a href="#" class="btn">Discover</a>
   </div>
-
-  <footer>
-    © <span id="year"></span> Passionis — همه حقوق محفوظ است.
-  </footer>
-
-  <script>
-    // منطق ساده باز/بستن کشو
-    const drawer = document.getElementById('drawer');
-    const openBtn = document.getElementById('openDrawer');
-    const closeBtn = document.getElementById('closeDrawer');
-    const backdrop = document.getElementById('backdrop');
-
-    function openDrawer(){
-      drawer.classList.add('open');
-      drawer.setAttribute('aria-hidden','false');
-      // تله فوکوس ساده:
-      closeBtn.focus();
-      document.addEventListener('keydown', escClose);
-    }
-    function closeDrawer(){
-      drawer.classList.remove('open');
-      drawer.setAttribute('aria-hidden','true');
-      openBtn.focus();
-      document.removeEventListener('keydown', escClose);
-    }
-    function escClose(e){ if(e.key === 'Escape') closeDrawer(); }
-
-    openBtn.addEventListener('click', openDrawer);
-    closeBtn.addEventListener('click', closeDrawer);
-    backdrop.addEventListener('click', closeDrawer);
-
-    // سال فوتر
-    document.getElementById('year').textContent = new Date().getFullYear();
+</body>
+</html>
