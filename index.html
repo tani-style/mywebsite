@@ -1,5 +1,6 @@
+>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
       color: white;
+      text-align: center;
     }
 
     /* نوار منو */
@@ -17,8 +19,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 20px;
       background: rgba(0, 0, 0, 0.6);
+      padding: 10px 20px;
       position: fixed;
       top: 0;
       width: 100%;
@@ -26,138 +28,72 @@
     }
 
     nav .logo {
-      font-size: 1.2em;
+      font-size: 1.5em;
       font-weight: bold;
     }
 
     nav ul {
       list-style: none;
+      margin: 0;
+      padding: 0;
       display: flex;
-      gap: 20px;
     }
 
     nav ul li {
-      display: inline;
+      position: relative;
     }
 
     nav ul li a {
-      text-decoration: none;
       color: white;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #1abc9c;
-    }
-
-    /* دکمه منو موبایل */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      height: 3px;
-      width: 25px;
-      background: white;
-      margin: 4px 0;
-      border-radius: 2px;
-    }
-
-    /* حالت کشویی */
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        text-align: right;
-        padding: 15px;
-      }
-
-      nav ul.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-    }
-
-    /* بخش اصلی */
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .hero h1 {
-      font-size: 2.5em;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 1.1em;
-      margin-bottom: 25px;
-      max-width: 600px;
-    }
-
-    .btn {
-      background: #008080; /* فیروزه‌ای تیره */
-      color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 5px;
-      font-size: 1em;
-      cursor: pointer;
       text-decoration: none;
+      padding: 10px 15px;
+      display: block;
       transition: background 0.3s;
     }
 
-    .btn:hover {
-      background: #006666;
+    nav ul li a:hover {
+      background: rgba(0, 255, 255, 0.2);
+      border-radius: 8px;
     }
-  </style>
-</head>
-<body>
 
-  <!-- منو -->
-  <nav>
-    <div class="logo">Passionis</div>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <ul id="menu">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Discover</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- بخش خوش‌آمد -->
-  <div class="hero">
-    <h1>Welcome to Passionis</h1>
-    <p>A place where elegance meets creativity. Discover unique ideas, stylish inspirations, and timeless design.</p>
-    <a href="#" class="btn">Discover</a>
-  </div>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById("menu").classList.toggle("active");
+    /* منوی کشویی */
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(0, 0, 0, 0.8);
+      min-width: 150px;
+      border-radius: 8px;
     }
-  </script>
 
-</body>
-</html>
+    nav ul li:hover ul {
+      display: block;
+    }
+
+    nav ul li ul li a {
+      padding: 10px;
+    }
+
+    /* متن وسط صفحه */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .hero h1 {
+      font-size: 4em;
+      margin: 0;
+    }
+
+    .hero button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #008b8b; /* فیروزه‌ای تیره */
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1em;
