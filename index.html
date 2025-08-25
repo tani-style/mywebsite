@@ -1,113 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Passionis</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
+display:flex; align-items:center; justify-content: space-between;
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .close{
+      width:40px; height:40px; border-radius: 12px;
+      border:1px solid var(--border);
+      background: var(--card); color: var(--text);
+      display:inline-flex; align-items:center; justify-content:center;
+      cursor:pointer;
+    }
+    .menu{
+      padding: 8px 10px 16px; overflow:auto;
+    }
+    .menu a{
+      display:flex; align-items:center; gap:10px;
+      padding: 12px 12px;
+      border-radius: 12px;
+      text-decoration:none; color: var(--text);
+      border:1px solid transparent;
+      transition: background .2s ease, border-color .2s ease;
+      font-size: 15.5px;
+    }
+    .menu a:hover{
+      background: #0f1722;
+      border-color: var(--border);
+    }
+    .menu small{ color: var(--muted); }
+
+    /* فوتر کوچیک */
+    footer{
+      max-width:1100px; margin: 40px auto 24px; padding: 0 18px;
+      color: var(--muted); font-size: 13px; text-align:center;
     }
 
-    /* هدر */
-    header {
-      width: 100%;
-      padding: 15px 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background: rgba(0, 0, 0, 0.2); /* شفاف */
-      z-index: 10;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 40px;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #FFD700;
-    }
-
-    /* بخش وسط صفحه */
-    .hero {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 25px;
-      max-width: 600px;
-    }
-
-    .hero button {
-      background-color: #FFD700;
-      border: none;
-      padding: 12px 30px;
-      font-size: 18px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .hero button:hover {
-      background-color: #e6c200;
+    /* دسترسی‌پذیری برای فوکوس */
+    a:focus-visible, button:focus-visible{
+      outline: 2px solid var(--teal); outline-offset: 2px;
     }
   </style>
 </head>
 <body>
-  <!-- منو -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Discover</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
+  <!-- نوار بالا -->
+  <nav class="nav" role="navigation" aria-label="ناوبری اصلی">
+    <div class="nav-inner">
+      <div class="brand" aria-label="نام سایت">Passionis</div>
+      <button id="openDrawer" class="hamburger" aria-label="باز کردن منو" aria-haspopup="dialog" aria-controls="drawerPanel">
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- سکشن قهرمان: عنوان + متن زیر پاسیونیس + دکمه فیروزه‌ای -->
+  <header class="hero">
+    <h1>Passionis</h1>
+    <p id="subtext">
+      اینجا متن زیر «Passionis» هست — هر توضیح کوتاهی که دوست داری اینجا بیاد
+      بذار. می‌تونی بعداً متن دقیق کارت رو جایگزین کنی.
+    </p>
+    <div class="actions">
+      <a class="btn" href="#discover" aria-label="برو به بخش Discover">Discover</a>
+      <!-- اگر دکمه دوم خواستی، فعالش کن
+      <a class="btn" href="#contact">ارتباط با ما</a>
+      -->
+    </div>
   </header>
 
-  <!-- متن وسط -->
-  <section class="hero">
-    <h1>Welcome to Passionis</h1>
-    <p>A place where elegance meets creativity. Discover unique ideas, stylish inspirations, and timeless design.</p>
-    <button>Discover</button>
-  </section>
-</body>
-</html>
+  <!-- منوی کشویی -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+    <aside class="panel" id="drawerPanel" role="dialog" aria-modal="true" aria-label="منوی سایت">
+      <div class="panel-header">
+        <strong>منو</strong>
+        <button class="close" id="closeDrawer" aria-label="بستن منو">✕</button>
+      </div>
+
+      <nav class="menu" role="menu">
+        <a role="menuitem" href="#home">خانه <small>صفحه اصلی</small></a>
+        <a role="menuitem" href="#discover">Discover <small>کشف و جستجو</small></a>
+        <a role="menuitem" href="#about">درباره ما <small>شناخت بیشتر</small></a>
+        <a role="menuitem" href="#contact">تماس با ما <small>ارتباط مستقیم</small></a>
+      </nav>
+    </aside>
+  </div>
+
+  <footer>
+    © <span id="year"></span> Passionis — همه حقوق محفوظ است.
+  </footer>
+
+  <script>
+    // منطق ساده باز/بستن کشو
+    const drawer = document.getElementById('drawer');
+    const openBtn = document.getElementById('openDrawer');
+    const closeBtn = document.getElementById('closeDrawer');
+    const backdrop = document.getElementById('backdrop');
+
+    function openDrawer(){
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden','false');
+      // تله فوکوس ساده:
+      closeBtn.focus();
+      document.addEventListener('keydown', escClose);
+    }
+    function closeDrawer(){
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden','true');
+      openBtn.focus();
+      document.removeEventListener('keydown', escClose);
+    }
+    function escClose(e){ if(e.key === 'Escape') closeDrawer(); }
+
+    openBtn.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    backdrop.addEventListener('click', closeDrawer);
+
+    // سال فوتر
+    document.getElementById('year').textContent = new Date().getFullYear();
