@@ -1,99 +1,124 @@
->
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Passionis</title>
+  <!-- فونت شیک (Lora) -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      font-family: 'Lora', serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
       color: white;
       text-align: center;
     }
-
-    /* نوار منو */
-    nav {
+    header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 10px 20px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-
-    nav .logo {
-      font-size: 1.5em;
-      font-weight: bold;
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-
-    nav ul li {
+      padding: 15px 30px;
+      background: rgba(0, 0, 0, 0.4);
       position: relative;
     }
-
-    nav ul li a {
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
       color: white;
       text-decoration: none;
-      padding: 10px 15px;
-      display: block;
-      transition: background 0.3s;
+      font-weight: 600;
     }
-
-    nav ul li a:hover {
-      background: rgba(0, 255, 255, 0.2);
-      border-radius: 8px;
+    nav a:hover {
+      color: #00d5d5;
     }
-
     /* منوی کشویی */
-    nav ul li ul {
+    .menu-toggle {
       display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: rgba(0, 0, 0, 0.8);
-      min-width: 150px;
-      border-radius: 8px;
+      flex-direction: column;
+      cursor: pointer;
     }
-
-    nav ul li:hover ul {
-      display: block;
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 4px 0;
     }
-
-    nav ul li ul li a {
-      padding: 10px;
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        right: 30px;
+        padding: 15px;
+        border-radius: 10px;
+      }
+      nav.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
     }
-
-    /* متن وسط صفحه */
     .hero {
-      height: 100vh;
+      height: 90vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
+      padding: 20px;
     }
-
     .hero h1 {
-      font-size: 4em;
-      margin: 0;
+      font-size: 40px;
+      margin-bottom: 15px;
     }
-
-    .hero button {
-      margin-top: 20px;
-      padding: 12px 25px;
-      background-color: #008b8b; /* فیروزه‌ای تیره */
-      border: none;
-      border-radius: 8px;
+    .hero p {
+      max-width: 600px;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    .btn {
+      background: #008b8b;
       color: white;
-      font-size: 1em;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #00b3b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Passionis</div>
+    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Discover</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Welcome to Passionis</h1>
+    <p>A place where elegance meets creativity. Discover unique ideas, stylish inspirations, and timeless design.</p>
+    <button class="btn">Discover</button>
+  </div>
+</body>
+</html>
