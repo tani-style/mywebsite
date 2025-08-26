@@ -5,37 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Passionis</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
     }
 
     body {
       height: 100vh;
       background: linear-gradient(to right, #243949, #517fa4);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
       color: white;
       text-align: center;
     }
 
     h1 {
-      font-size: 3rem;
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 3.5rem;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
+      margin-top: -80px; /* بالاتر آوردن */
+      letter-spacing: 2px;
     }
 
     p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      opacity: 0.9;
+      margin-bottom: 25px;
     }
 
     .btn {
@@ -80,9 +85,9 @@
       right: -250px;
       width: 250px;
       height: 100%;
-      background: rgba(0,0,0,0.9);
+      background: rgba(0,0,0,0.95);
       transition: 0.3s;
-      padding-top: 60px;
+      padding-top: 80px;
       z-index: 1000;
     }
 
@@ -91,8 +96,9 @@
       padding: 15px;
       color: white;
       text-decoration: none;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       transition: 0.3s;
+      font-family: 'Cormorant Garamond', serif;
     }
 
     .side-menu a:hover {
