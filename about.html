@@ -3,43 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - Passionis</title>
+  <title>About</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">PASSIONIS</div>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <ul class="menu">
+  <!-- منوی مشترک -->
+  <nav>
+    <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="discover.html">Discover</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="discover.html">Discover</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Content -->
-  <section class="hero">
-    <h1>About Us</h1>
-    <p>
-      Passionis is a creative journey where ideas come to life.  
-      We believe in innovation, simplicity, and passion.  
-      Our mission is to inspire and help creators bring their visions to reality.
-    </p>
-  </section>
-
-  <script>
-    function toggleMenu() {
-      document.querySelector(".menu").classList.toggle("active");
-    }
-</script>
- <script>
-  function toggleMenu() {
-    document.querySelector(".menu").classList.toggle("show");
-  }
-</script>
-</body>
-</html> 
+  <!-- محتوای مخصوص همین صفحه -->
+  <main>
+    <h1>About Page</h1>
+    <p>اینجا می‌تونی متن یا عکس درباره سایتت بزاری.</p>
+    <img src="about-photo.jpg" alt="About photo" width="300">
+  </main>
 </body>
 </html>
